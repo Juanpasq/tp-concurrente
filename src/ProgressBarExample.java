@@ -12,6 +12,7 @@ public class ProgressBarExample extends JFrame implements ActionListener {
   public ProgressBarExample() {
     setLayout(new FlowLayout());
 
+    //barriles > barras de progreso
     capacidadGas = new JProgressBar(0, 200);
     capacidadGas.setValue(0);
     capacidadGas.setBackground(Color.white);
@@ -39,7 +40,8 @@ public class ProgressBarExample extends JFrame implements ActionListener {
     barrilStella.setForeground(Color.orange);
     barrilStella.setStringPainted(true);
     add(barrilStella);
- 
+    
+    //botones
     coronaButton = new JToggleButton("Corona");
     coronaButton.addActionListener(this);
     add(coronaButton);

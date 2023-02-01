@@ -3,82 +3,114 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class ProgressBarExample extends JFrame implements ActionListener {
-  private JProgressBar progressBar, progressBar2,progressBar3;
-  private JToggleButton startButton, pauseButton;
+  private JProgressBar capacidadGas, barrilCorona,barrilGuinness, barrilStella;
+  private JToggleButton coronaButton, guinnessButton, stellaButton;
   private JButton resetButton;
-  private Timer timer, timer2, timer3, timer4;
-  private int counter, counter2, counter3 = 0;
+  private Timer timerGasCorona, timerCorona, timerGasGuinness, timerGuinness, timerGasStella, timerStella;
+  private int counter, counter2, counter3, counter4 = 0;
 
   public ProgressBarExample() {
     setLayout(new FlowLayout());
 
-    progressBar = new JProgressBar(0, 200);
-    progressBar.setValue(0);
-    progressBar.setStringPainted(true);
-    add(progressBar);
+    capacidadGas = new JProgressBar(0, 200);
+    capacidadGas.setValue(0);
+    capacidadGas.setStringPainted(true);
+    add(capacidadGas);
     
-    progressBar2 = new JProgressBar(0, 100);
-    progressBar2.setValue(0);
-    progressBar2.setStringPainted(true);
-    add(progressBar2);
+    barrilCorona = new JProgressBar(0, 100);
+    barrilCorona.setValue(0);
+    barrilCorona.setStringPainted(true);
+    add(barrilCorona);
     
-    progressBar3 = new JProgressBar(0, 100);
-    progressBar3.setValue(0);
-    progressBar3.setStringPainted(true);
-    add(progressBar3);
+    barrilGuinness = new JProgressBar(0, 100);
+    barrilGuinness.setValue(0);
+    barrilGuinness.setStringPainted(true);
+    add(barrilGuinness);
+    
+    barrilStella = new JProgressBar(0, 100);
+    barrilStella.setValue(0);
+    barrilStella.setStringPainted(true);
+    add(barrilStella);
  
-    startButton = new JToggleButton("fria");
-    startButton.addActionListener(this);
-    add(startButton);
+    coronaButton = new JToggleButton("Corona");
+    coronaButton.addActionListener(this);
+    add(coronaButton);
 
-    pauseButton = new JToggleButton("caliente");
-    pauseButton.addActionListener(this);
-    add(pauseButton);
+    guinnessButton = new JToggleButton("Guinness");
+    guinnessButton.addActionListener(this);
+    add(guinnessButton);
+    
+    stellaButton = new JToggleButton("Stella");
+    stellaButton.addActionListener(this);
+    add(stellaButton);
 
     resetButton = new JButton("Reset");
     resetButton.addActionListener(this);
     add(resetButton);
 
-    timer = new Timer(100, new ActionListener() {
+    //bloques de acciones de cada cerveza sobre los barriles (dos por cada uno, gas y cerveza)
+    timerGasCorona = new Timer(100, new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         if (counter >= 200) {
-          timer.stop();
+        	timerGasCorona.stop();
         } else {
-          progressBar.setValue(++counter);
+          capacidadGas.setValue(++counter);
         }
       }
     });
     
-    timer2 = new Timer(100, new ActionListener() {
+    timerGasGuinness = new Timer(100, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
           if (counter >= 200) {
-            timer.stop();
+            timerGasGuinness.stop();
           } else {
-            progressBar.setValue(++counter);
+            capacidadGas.setValue(++counter);
           }
         }
       });
     
-    timer3 = new Timer(100, new ActionListener() {
+    timerGasStella = new Timer(100, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          if (counter >= 400) {
-            timer3.stop();
+          if (counter >= 200) {
+            timerGasStella.stop();
           } else {
-            progressBar2.setValue(++counter2);
+            capacidadGas.setValue(++counter);
           }
         }
       });
     
-    timer4 = new Timer(100, new ActionListener() {
+    timerCorona = new Timer(100, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
           if (counter >= 400) {
-            timer4.stop();
+            timerCorona.stop();
           } else {
-            progressBar3.setValue(++counter3);
+            barrilCorona.setValue(++counter2);
+          }
+        }
+      });
+    
+    timerGuinness = new Timer(100, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          if (counter >= 400) {
+            timerGuinness.stop();
+          } else {
+            barrilGuinness.setValue(++counter3);
+          }
+        }
+      });
+    
+    timerStella = new Timer(100, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          if (counter >= 400) {
+            timerStella.stop();
+          } else {
+            barrilStella.setValue(++counter3);
           }
         }
       });
@@ -89,50 +121,75 @@ public class ProgressBarExample extends JFrame implements ActionListener {
     setLocationRelativeTo(null);
     setVisible(true);
   }
-
+  
+  //acciones de cada boton
   @Override
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == startButton) {
-      if (startButton.isSelected()) {
-        startButton.setText("Stop");
-        pauseButton.setEnabled(true);
-        timer.start();
-        timer3.start();
+    if (e.getSource() == coronaButton) {
+      if (coronaButton.isSelected()) {
+        coronaButton.setText("Parar");
+        timerGasCorona.start();
+        timerCorona.start();
       } else {
-        startButton.setText("Start");
-        pauseButton.setEnabled(true);
-        timer.stop();
-        timer3.stop();
+        coronaButton.setText("Corona");
+        timerGasCorona.stop();
+        timerCorona.stop();
       }
-    } else if (e.getSource() == pauseButton) {
-      if (pauseButton.isSelected()) {
-        pauseButton.setText("cortar");
-        timer2.start();
-        timer4.start();
+    } else if (e.getSource() == guinnessButton) {
+      if (guinnessButton.isSelected()) {
+        guinnessButton.setText("Parar");
+        timerGasGuinness.start();
+        timerGuinness.start();
       } else {
-        pauseButton.setText("caliente");
-        timer2.stop();
-        timer4.stop();
+        guinnessButton.setText("Guinness");
+        timerGasGuinness.stop();
+        timerGuinness.stop();
       }
+    }
+      
+      else if (e.getSource() == stellaButton) {
+          if (stellaButton.isSelected()) {
+            stellaButton.setText("Parar");
+            timerGasStella.start();
+            timerStella.start();
+          } else {
+            stellaButton.setText("Stella");
+            timerGasStella.stop();
+            timerStella.stop();
+          }
+      
     } else if (e.getSource() == resetButton) {
       counter = 0;
       counter2 = 0;
       counter3 = 0;
+      counter4 = 0;
       
-      progressBar.setValue(counter);
-      progressBar2.setValue(counter2);
-      progressBar3.setValue(counter3);
+      //reseteo de contadores
+      capacidadGas.setValue(counter);
+      barrilCorona.setValue(counter2);
+      barrilGuinness.setValue(counter3);
+      barrilStella.setValue(counter4);
+     
+      //estado de botones al reiniciar
+      coronaButton.setText("Corona");
+      coronaButton.setSelected(false);
+      coronaButton.setEnabled(true); 
+      stellaButton.setText("Stella");
+      stellaButton.setSelected(false);
+      stellaButton.setEnabled(true);
+      guinnessButton.setText("Guinness");
+      guinnessButton.setSelected(false);
+      guinnessButton.setEnabled(true);
       
-      startButton.setText("Start");
-      startButton.setSelected(false);
-      pauseButton.setText("caliente");
-      pauseButton.setSelected(false);
-      pauseButton.setEnabled(true);
+      //timers a barril de gas
+      timerGasGuinness.stop();
+      timerGasStella.stop();
+      timerGasCorona.stop();
       
-      timer.stop();
-      timer2.stop();
-      timer3.stop();
-      timer4.stop();
+      //timers barriles cerveza
+      timerGuinness.stop();
+      timerStella.stop();
+      timerCorona.stop();
     }
   }
 

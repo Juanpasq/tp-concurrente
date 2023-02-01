@@ -14,21 +14,29 @@ public class ProgressBarExample extends JFrame implements ActionListener {
 
     capacidadGas = new JProgressBar(0, 200);
     capacidadGas.setValue(0);
+    capacidadGas.setBackground(Color.white);
+    capacidadGas.setForeground(Color.pink);
     capacidadGas.setStringPainted(true);
     add(capacidadGas);
     
+    //jProgressBar.setBackground(Color.elquequieras);
+    //jProgressBar.setForeground(Color.elquequieras);
+    
     barrilCorona = new JProgressBar(0, 100);
     barrilCorona.setValue(0);
+    barrilCorona.setForeground(Color.yellow);
     barrilCorona.setStringPainted(true);
     add(barrilCorona);
     
     barrilGuinness = new JProgressBar(0, 100);
     barrilGuinness.setValue(0);
+    barrilGuinness.setForeground(Color.darkGray);
     barrilGuinness.setStringPainted(true);
     add(barrilGuinness);
     
     barrilStella = new JProgressBar(0, 100);
     barrilStella.setValue(0);
+    barrilStella.setForeground(Color.orange);
     barrilStella.setStringPainted(true);
     add(barrilStella);
  
@@ -159,37 +167,37 @@ public class ProgressBarExample extends JFrame implements ActionListener {
           }
       
     } else if (e.getSource() == resetButton) {
-      counter = 0;
-      counter2 = 0;
-      counter3 = 0;
-      counter4 = 0;
-      
-      //reseteo de contadores
-      capacidadGas.setValue(counter);
-      barrilCorona.setValue(counter2);
-      barrilGuinness.setValue(counter3);
-      barrilStella.setValue(counter4);
-     
-      //estado de botones al reiniciar
-      coronaButton.setText("Corona");
-      coronaButton.setSelected(false);
-      coronaButton.setEnabled(true); 
-      stellaButton.setText("Stella");
-      stellaButton.setSelected(false);
-      stellaButton.setEnabled(true);
-      guinnessButton.setText("Guinness");
-      guinnessButton.setSelected(false);
-      guinnessButton.setEnabled(true);
-      
-      //timers a barril de gas
-      timerGasGuinness.stop();
-      timerGasStella.stop();
-      timerGasCorona.stop();
-      
-      //timers barriles cerveza
-      timerGuinness.stop();
-      timerStella.stop();
-      timerCorona.stop();
+	      counter = 0;
+	      counter2 = 0;
+	      counter3 = 0;
+	      counter4 = 0;
+	      
+	      //reseteo de contadores
+	      capacidadGas.setValue(counter);
+	      barrilCorona.setValue(counter2);
+	      barrilGuinness.setValue(counter3);
+	      barrilStella.setValue(counter4);
+	     
+	      //estado de botones al reiniciar
+	      coronaButton.setText("Corona");
+	      coronaButton.setSelected(false);
+	      coronaButton.setEnabled(true); 
+	      stellaButton.setText("Stella");
+	      stellaButton.setSelected(false);
+	      stellaButton.setEnabled(true);
+	      guinnessButton.setText("Guinness");
+	      guinnessButton.setSelected(false);
+	      guinnessButton.setEnabled(true);
+	      
+	      //timers a barril de gas
+	      timerGasGuinness.stop();
+	      timerGasStella.stop();
+	      timerGasCorona.stop();
+	      
+	      //timers barriles cerveza
+	      timerGuinness.stop();
+	      timerStella.stop();
+	      timerCorona.stop();
     }
   }
 
@@ -201,5 +209,6 @@ public class ProgressBarExample extends JFrame implements ActionListener {
       }
     });
   }
+  
 }
 

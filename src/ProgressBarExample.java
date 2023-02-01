@@ -7,7 +7,7 @@ public class ProgressBarExample extends JFrame implements ActionListener {
   private JToggleButton startButton, pauseButton;
   private JButton resetButton;
   private Timer timer, timer2, timer3, timer4;
-  private int counter = 0;
+  private int counter, counter2, counter3 = 0;
 
   public ProgressBarExample() {
     setLayout(new FlowLayout());
@@ -67,7 +67,7 @@ public class ProgressBarExample extends JFrame implements ActionListener {
           if (counter >= 400) {
             timer3.stop();
           } else {
-            progressBar2.setValue(++counter);
+            progressBar2.setValue(++counter2);
           }
         }
       });
@@ -78,7 +78,7 @@ public class ProgressBarExample extends JFrame implements ActionListener {
           if (counter >= 400) {
             timer4.stop();
           } else {
-            progressBar3.setValue(++counter);
+            progressBar3.setValue(++counter3);
           }
         }
       });
@@ -115,15 +115,20 @@ public class ProgressBarExample extends JFrame implements ActionListener {
         timer4.stop();
       }
     } else if (e.getSource() == resetButton) {
-      counter = 10;
+      counter = 0;
+      counter2 = 0;
+      counter3 = 0;
+      
       progressBar.setValue(counter);
-      progressBar2.setValue(counter);
-      progressBar3.setValue(counter);
+      progressBar2.setValue(counter2);
+      progressBar3.setValue(counter3);
+      
       startButton.setText("Start");
       startButton.setSelected(false);
       pauseButton.setText("caliente");
       pauseButton.setSelected(false);
       pauseButton.setEnabled(true);
+      
       timer.stop();
       timer2.stop();
       timer3.stop();

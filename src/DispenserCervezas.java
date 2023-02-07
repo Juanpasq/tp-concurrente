@@ -80,9 +80,13 @@ public class DispenserCervezas extends JFrame implements ActionListener {
     recargaGuinness.setPreferredSize(new Dimension(80, 40));
     add(recargaGuinness,BorderLayout.SOUTH);
 
-    recargaStella = new JButton("Recarga Stella");
+    ImageIcon icon = new ImageIcon("/recursos/guinnes.png");
+
+
+    recargaStella = new JButton("Recarga Stella", icon);
     recargaStella.addActionListener(this);
     recargaStella.setPreferredSize(new Dimension(80, 40));
+
     add(recargaStella,BorderLayout.SOUTH);
 
     recargaGas = new JButton("Recargar gas");

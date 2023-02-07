@@ -70,11 +70,6 @@ public class DispenserCervezas extends JFrame implements ActionListener {
     //resetButton.addActionListener(this);
     //add(resetButton,BorderLayout.SOUTH);
 
-    recargaGas = new JButton("Recargar gas");
-    recargaGas.addActionListener(this);
-    recargaGas.setPreferredSize(new Dimension(250, 40));
-    add(recargaGas,BorderLayout.SOUTH);
-
     recargaCorona = new JButton("Recargar Corona");
     recargaCorona.addActionListener(this);
     recargaCorona.setPreferredSize(new Dimension(80, 40));
@@ -89,6 +84,11 @@ public class DispenserCervezas extends JFrame implements ActionListener {
     recargaStella.addActionListener(this);
     recargaStella.setPreferredSize(new Dimension(80, 40));
     add(recargaStella,BorderLayout.SOUTH);
+
+    recargaGas = new JButton("Recargar gas");
+    recargaGas.addActionListener(this);
+    recargaGas.setPreferredSize(new Dimension(250, 40));
+    add(recargaGas,BorderLayout.SOUTH);
 
     //bloques de acciones de cada cerveza sobre los barriles (dos por cada uno, gas y cerveza)
     timerGasCorona = new Timer(100, new ActionListener() {
@@ -184,7 +184,7 @@ public class DispenserCervezas extends JFrame implements ActionListener {
     });
 
     setTitle("Dispenser de Cervezas");
-    setSize(370, 400);
+    setSize(270, 505);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null);
     setVisible(true);

@@ -256,36 +256,6 @@ public class DispenserCervezas extends JFrame implements ActionListener {
         counter4=100;
         barrilStella.setValue(counter4);
       }
-
-      /*else if (e.getSource() == resetButton) {
-	      counter = 100;
-	      counter2 = 100;
-	      counter3 = 100;
-	      counter4 = 100;
-	      //reseteo de contadores
-	      capacidadGas.setValue(counter);
-	      barrilCorona.setValue(counter2);
-	      barrilGuinness.setValue(counter3);
-	      barrilStella.setValue(counter4);
-	      //estado de botones al reiniciar
-	      coronaButton.setText("Corona");
-	      coronaButton.setSelected(false);
-	      coronaButton.setEnabled(true);
-	      stellaButton.setText("Stella");
-	      stellaButton.setSelected(false);
-	      stellaButton.setEnabled(true);
-	      guinnessButton.setText("Guinness");
-	      guinnessButton.setSelected(false);
-	      guinnessButton.setEnabled(true);
-	      //timers a barril de gas
-	      timerGasGuinness.stop();
-	      timerGasStella.stop();
-	      timerGasCorona.stop();
-	      //timers barriles cerveza
-	      timerGuinness.stop();
-	      timerStella.stop();
-	      timerCorona.stop();
-      }*/
   }
 
   public static void main(String[] args) {

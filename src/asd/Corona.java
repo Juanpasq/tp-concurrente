@@ -3,7 +3,6 @@ package asd;
 import java.util.Random;
 
 public class Corona implements Runnable {
-
     int barrilCerveza = 80;
     int barrilGas=100;
 
@@ -25,9 +24,7 @@ public class Corona implements Runnable {
             }
         }
 
-
     System.out.println(gas.getCapacidadGas()+"capacidadGas");
-
 
     }
 

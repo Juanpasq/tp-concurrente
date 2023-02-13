@@ -95,7 +95,7 @@ public class DispenserCervezas extends JFrame implements ActionListener {
     add(recargaGas,BorderLayout.SOUTH);
 
     //bloques de acciones de cada cerveza sobre los barriles (dos por cada uno, gas y cerveza)
-    timerGasCorona = new Timer(100, new ActionListener() {
+    timerGasCorona = new Timer(50, new ActionListener() {
       @Override
       //si no hay mas gas, para los 2 barriles
       public void actionPerformed(ActionEvent e) {
